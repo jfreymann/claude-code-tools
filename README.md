@@ -228,5 +228,7 @@ These extensions are provided as-is for use with Claude Code.
 
 ## Special thanks
 A lot of these repos are pulled from the following and modified to meet my specific needs. Giving credit where credit is due! 
+
 https://github.com/glittercowboy
+
 https://github.com/VoltAgent
