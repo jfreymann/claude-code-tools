@@ -1,0 +1,9 @@
+debug/*
+file-history/*
+history.jsonl
+ide/*
+projects/*
+settings.json*
+statsig/**
+todos/*
+shell-snapshots/*
