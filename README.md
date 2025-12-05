@@ -1,234 +1,381 @@
-# Claude Code Extensions
+# Claude Code Tools
 
-A curated collection of specialized agents, slash commands, and skills for Claude Code. This directory contains tools to enhance your development workflow with domain-specific expertise, productivity commands, and structured skill frameworks.
+A complete toolkit for Claude Code: specialized agents, productivity commands, skills, and a project bootstrap system for session continuity.
 
-## Overview
+**Clone → Install → Build.** One command setup, consistent workflow across all your projects.
 
-This repository contains three main categories of extensions:
+## Quick Start
 
-- **Agents**: Specialized subagents with deep domain expertise
-- **Commands**: Slash commands for productivity and workflow automation
-- **Skills**: Structured knowledge frameworks for complex tasks
+```bash
+# Clone
+git clone https://github.com/jfreymann/claude-code-tools.git ~/.claude-code-tools
 
-## Agents
+# Install
+~/.claude-code-tools/install.sh
 
-Specialized subagents that provide expert-level assistance in specific domains. Agents can be invoked using the Task tool with the appropriate `subagent_type`.
-
-### Language & Framework Experts
-
-| Agent | Description | Use When |
-|-------|-------------|----------|
-| **bash-expert** | Production-grade Bash scripting with defensive programming | Writing shell scripts, CI/CD pipelines, deployment automation |
-| **go-expert** | Idiomatic Go development, concurrency patterns, performance | Working with Go code, goroutines, channels, interfaces |
-| **python-expert** | Modern Python 3.11+ with type safety and async patterns | Python development, data science, web frameworks |
-| **rails-expert** | Ruby on Rails development expertise | Rails application development |
-| **react-expert** | React component architecture, hooks, performance optimization | React development, state management, UI patterns |
-| **typescript-expert** | Strict type safety, advanced types, async patterns | TypeScript development, type system optimization |
-
-### Database & Data Experts
-
-| Agent | Description | Use When |
-|-------|-------------|----------|
-| **postgres-expert** | PostgreSQL optimization, schema design, query tuning | Database design, performance tuning, backup strategies |
-| **sql-expert** | SQL query writing, optimization, schema design | Writing complex queries, database optimization |
-
-### DevOps & Tooling Experts
-
-| Agent | Description | Use When |
-|-------|-------------|----------|
-| **git-workflow-manager** | Git workflow optimization, branching strategies, conflict resolution | Managing commits, improving Git workflows, pushing code |
-| **puppet-expert** | Puppet manifests, roles/profiles pattern, infrastructure as code | Writing Puppet modules, troubleshooting agent runs |
-
-### Styling & Design Experts
-
-| Agent | Description | Use When |
-|-------|-------------|----------|
-| **tailwind-expert** | Tailwind CSS implementation, responsive design, optimization | Styling components, configuring Tailwind, performance optimization |
-
-### Development Tools
-
-| Agent | Description | Use When |
-|-------|-------------|----------|
-| **changelog-generator** | Professional changelogs from commits, semantic versioning | Documenting releases, preparing release notes |
-| **code-reviewer** | Comprehensive code review with security and quality focus | After completing features, before merging PRs |
-| **prompt-engineer** | LLM prompt optimization, cost reduction, accuracy improvement | Optimizing prompts, reducing token usage, improving outputs |
-
-### Auditing Tools
-
-| Agent | Description | Use When |
-|-------|-------------|----------|
-| **skill-auditor** | Audit SKILL.md files for best practices compliance | Reviewing skill documentation |
-| **slash-command-auditor** | Audit slash command files for best practices | Reviewing slash commands |
-| **subagent-auditor** | Audit subagent configurations for effectiveness | Reviewing agent configs |
-
-## Commands
-
-Slash commands provide quick access to common workflows and productivity tools. Commands are invoked with `/command-name`.
-
-### Creation & Development
-
-| Command | Description |
-|---------|-------------|
-| `/create-agent-skill` | Create or edit Claude Code skills with expert guidance |
-| `/create-hook` | Create Claude Code hooks for event-based automation |
-| `/create-meta-prompt` | Create prompts optimized for Claude-to-Claude pipelines |
-| `/create-plan` | Create hierarchical project plans for solo development |
-| `/create-prompt` | Create prompts that another Claude can execute |
-| `/create-slash-command` | Create new slash commands following best practices |
-| `/create-subagent` | Create specialized Claude Code subagents |
-
-### Auditing & Quality
-
-| Command | Description |
-|---------|-------------|
-| `/audit-skill` | Audit skill for YAML, XML structure, and best practices |
-| `/audit-slash-command` | Audit slash command for configuration and quality |
-| `/audit-subagent` | Audit subagent for role definition and effectiveness |
-| `/heal-skill` | Apply corrections to skill documentation with approval |
-
-### Task Management
-
-| Command | Description |
-|---------|-------------|
-| `/add-to-todos` | Add todo item to TO-DOS.md with conversation context |
-| `/check-todos` | List outstanding todos and select one to work on |
-| `/run-plan` | Execute a PLAN.md file from the planning directory |
-| `/run-prompt` | Delegate prompts to fresh sub-task contexts (parallel or sequential) |
-| `/whats-next` | Analyze conversation and create handoff document |
-
-### Analysis & Debugging
-
-| Command | Description |
-|---------|-------------|
-| `/debug` | Apply expert debugging methodology to investigate issues |
-
-### Mental Models (Consider Commands)
-
-A collection of decision-making frameworks accessible via `/consider:*` commands:
-
-| Command | Framework | Use For |
-|---------|-----------|---------|
-| `/consider:pareto` | Pareto Principle (80/20 rule) | Finding high-impact actions |
-| `/consider:inversion` | Inversion thinking | Solving problems backwards |
-| `/consider:via-negativa` | Improvement by subtraction | Finding what to remove |
-| `/consider:opportunity-cost` | Trade-off analysis | Understanding what you give up |
-| `/consider:eisenhower-matrix` | Urgent/Important matrix | Task prioritization |
-| `/consider:second-order` | Second-order thinking | Analyzing consequences of consequences |
-| `/consider:5-whys` | Root cause analysis | Drilling to fundamental causes |
-| `/consider:occams-razor` | Simplicity principle | Finding simplest explanations |
-| `/consider:one-thing` | Focus identification | Finding highest-leverage action |
-| `/consider:swot` | SWOT analysis | Strategic planning |
-| `/consider:10-10-10` | Multi-timeframe analysis | Evaluating long-term impact |
-| `/consider:first-principles` | Fundamental reasoning | Breaking down to base truths |
-
-## Skills
-
-Structured knowledge frameworks that provide comprehensive guidance for complex tasks. Skills are invoked using the Skill tool.
-
-### Available Skills
-
-| Skill | Description |
-|-------|-------------|
-| **create-agent-skills** | Expert guidance for creating, writing, and refining Claude Code Skills |
-| **create-hooks** | Guidance for creating and configuring Claude Code hooks |
-| **create-meta-prompts** | Create optimized prompts for Claude-to-Claude pipelines |
-| **create-plans** | Create hierarchical project plans for solo agentic development |
-| **create-slash-commands** | Expert guidance for creating slash commands |
-| **create-subagents** | Expert guidance for creating and using subagents |
-| **debug-like-expert** | Deep analysis debugging mode for complex issues |
-
-## Usage Examples
-
-### Using an Agent
-
-```
-# Invoke the typescript-expert agent
-User: "I need help optimizing this TypeScript code"
-Claude uses: Task tool with subagent_type='typescript-expert'
+# Use
+cd your-project
+claude
+/bootstrap
 ```
 
-### Using a Command
+That's it. You now have 15+ specialized agents, 20+ commands, and a documentation system that preserves context across sessions.
 
-```
-# Create a new plan
-/create-plan user authentication system
-
-# Add a todo
-/add-to-todos Implement JWT token validation
-
-# Apply a mental model
-/consider:pareto feature prioritization
-```
-
-### Using a Skill
-
-```
-# Get guidance on creating a skill
-User: "Help me create a new skill for API testing"
-Claude uses: Skill tool with skill='create-agent-skills'
-```
+---
 
 ## Installation
 
-1. Clone or download this directory to your Claude Code configuration folder (typically `~/.claude`)
-2. The agents, commands, and skills will be automatically available in Claude Code
+### One-Line Install
+
+```bash
+git clone https://github.com/jfreymann/claude-code-tools.git ~/.claude-code-tools && ~/.claude-code-tools/install.sh
+```
+
+### Options
+
+```bash
+./install.sh --link    # Symlink (recommended) - auto-updates with git pull
+./install.sh --copy    # Copy files - static installation
+./install.sh --all     # No prompts, install everything
+```
+
+### Updating
+
+```bash
+cd ~/.claude-code-tools && git pull
+# If using --link, you're done
+# If using --copy, run ./install.sh --copy again
+```
+
+### Uninstalling
+
+```bash
+rm -rf ~/.claude/{agents,commands,skills}
+rm -rf ~/.claude-code-tools
+```
+
+---
+
+## The Bootstrap Workflow
+
+The key to this toolkit is the `/bootstrap` command and the `/sync` discipline.
+
+### New Project Setup
+
+```bash
+mkdir my-project && cd my-project
+claude
+/bootstrap
+```
+
+Bootstrap creates:
+```
+my-project/
+├── claude.md                 # Project identity, agent references
+├── docs/
+│   ├── architecture.md       # System design
+│   ├── decisions.md          # ADRs (why you chose things)
+│   ├── troubleshooting.md    # Known issues & solutions
+│   ├── changelog.md          # Session history ← KEY FOR CONTINUITY
+│   ├── roadmap.md            # Planning & priorities
+│   └── patterns.md           # Code conventions
+└── .claude/commands/
+    ├── sync.md               # Update docs after work
+    └── context.md            # Load relevant docs
+```
+
+### Daily Workflow
+
+```
+Start session:
+  claude                      # claude.md auto-loads
+  /whats-next                 # or check docs/changelog.md
+
+Work:
+  /create-plan               # Design complex features
+  @rails-expert [task]       # Delegate to specialists
+  /debug                     # When stuck
+
+End session:
+  /sync                      # ALWAYS RUN THIS
+```
+
+**The `/sync` habit is everything.** It captures decisions, solutions, and progress so your next session has full context.
+
+---
+
+## Agents
+
+Specialized experts you can delegate to. Use with `@agent-name [request]`.
+
+### Language & Framework Experts
+
+| Agent | Use For |
+|-------|---------|
+| `@bash-expert` | Shell scripts, CI/CD, deployment automation |
+| `@go-expert` | Go development, concurrency, performance |
+| `@python-expert` | Python 3.11+, async, type safety, data science |
+| `@rails-expert` | Ruby on Rails applications |
+| `@react-expert` | React components, hooks, state management |
+| `@typescript-expert` | TypeScript, advanced types, strict mode |
+
+### Database & Data
+
+| Agent | Use For |
+|-------|---------|
+| `@postgres-expert` | PostgreSQL optimization, schema design, tuning |
+| `@sql-expert` | Complex queries, optimization, schema design |
+
+### DevOps & Infrastructure
+
+| Agent | Use For |
+|-------|---------|
+| `@git-workflow-manager` | Commits, branches, conflict resolution, pushing |
+| `@puppet-expert` | Puppet manifests, roles/profiles, infrastructure as code |
+
+### Styling
+
+| Agent | Use For |
+|-------|---------|
+| `@tailwind-expert` | Tailwind CSS, responsive design, optimization |
+
+### Development Tools
+
+| Agent | Use For |
+|-------|---------|
+| `@changelog-generator` | Release notes from commits, semantic versioning |
+| `@code-reviewer` | Code review, security analysis, quality checks |
+| `@prompt-engineer` | LLM prompt optimization, token reduction |
+
+### Auditing
+
+| Agent | Use For |
+|-------|---------|
+| `@skill-auditor` | Audit SKILL.md files |
+| `@slash-command-auditor` | Audit slash commands |
+| `@subagent-auditor` | Audit agent configurations |
+
+### Example Usage
+
+```
+@rails-expert This controller has N+1 queries, help me optimize
+
+@postgres-expert Review this schema for a multi-tenant SaaS app
+
+@code-reviewer Check this PR for security issues before merge
+
+@git-workflow-manager Push these changes with a good commit message
+```
+
+---
+
+## Commands
+
+### Project Lifecycle
+
+| Command | Purpose |
+|---------|---------|
+| `/bootstrap` | Initialize new project with docs structure |
+| `/sync` | Update docs with session work (run at end of every session) |
+| `/quick-sync` | Lightweight changelog-only sync |
+| `/context` | Load only docs relevant to current task |
+
+### Planning & Tasks
+
+| Command | Purpose |
+|---------|---------|
+| `/create-plan` | Create hierarchical project plan |
+| `/run-plan` | Execute a PLAN.md file |
+| `/whats-next` | Analyze context, suggest next action |
+| `/add-to-todos` | Add item to TO-DOS.md |
+| `/check-todos` | Review and select todo to work on |
+
+### Creation
+
+| Command | Purpose |
+|---------|---------|
+| `/create-slash-command` | Create new slash command |
+| `/create-agent-skill` | Create or edit skills |
+| `/create-subagent` | Create specialized agent |
+| `/create-hook` | Create event-based automation |
+| `/create-prompt` | Create executable prompt |
+| `/create-meta-prompt` | Create Claude-to-Claude pipeline prompt |
+
+### Quality & Debugging
+
+| Command | Purpose |
+|---------|---------|
+| `/debug` | Systematic debugging methodology |
+| `/audit-skill` | Audit skill for best practices |
+| `/audit-slash-command` | Audit command configuration |
+| `/audit-subagent` | Audit agent effectiveness |
+| `/heal-skill` | Apply corrections to skill docs |
+
+### Mental Models (`/consider:*`)
+
+Decision frameworks for complex problems:
+
+| Command | Framework |
+|---------|-----------|
+| `/consider:pareto` | 80/20 rule - find high-impact actions |
+| `/consider:inversion` | Solve problems backwards |
+| `/consider:first-principles` | Break down to base truths |
+| `/consider:5-whys` | Root cause analysis |
+| `/consider:eisenhower-matrix` | Urgent/important prioritization |
+| `/consider:second-order` | Consequences of consequences |
+| `/consider:opportunity-cost` | What you give up |
+| `/consider:occams-razor` | Simplest explanation |
+| `/consider:via-negativa` | Improve by subtraction |
+| `/consider:swot` | Strategic planning |
+| `/consider:10-10-10` | Short/medium/long term impact |
+| `/consider:one-thing` | Highest leverage action |
+
+---
+
+## Skills
+
+Structured knowledge frameworks for complex tasks.
+
+| Skill | Purpose |
+|-------|---------|
+| `create-agent-skills` | Guide for creating Claude Code skills |
+| `create-hooks` | Guide for event-based automation |
+| `create-meta-prompts` | Claude-to-Claude pipeline optimization |
+| `create-plans` | Hierarchical project planning |
+| `create-slash-commands` | Slash command best practices |
+| `create-subagents` | Agent creation guide |
+| `debug-like-expert` | Deep analysis debugging mode |
+
+---
+
+## Project Documentation System
+
+The bootstrap creates a documentation structure optimized for AI session continuity.
+
+### File Purposes
+
+| File | Purpose | Load When |
+|------|---------|-----------|
+| `claude.md` | Project identity, always loaded | Auto |
+| `docs/architecture.md` | System design | Integration, design work |
+| `docs/decisions.md` | ADRs - why you chose things | Proposing changes |
+| `docs/troubleshooting.md` | Known issues & solutions | Debugging |
+| `docs/changelog.md` | Session history | Session start |
+| `docs/roadmap.md` | Planning & priorities | Deciding what to work on |
+| `docs/patterns.md` | Code conventions | Writing/reviewing code |
+
+### The /sync Discipline
+
+**Run `/sync` at the end of every meaningful session.** It captures:
+
+- **Decisions** → `docs/decisions.md` as ADRs
+- **Problems solved** → `docs/troubleshooting.md`
+- **Patterns established** → `docs/patterns.md`
+- **Architecture changes** → `docs/architecture.md`
+- **Progress** → `docs/changelog.md` + `docs/roadmap.md`
+
+This is what makes context persist across sessions. Skip it and you lose context.
+
+---
 
 ## Directory Structure
 
+After installation:
+
 ```
-.claude/
-├── agents/              # Specialized subagents
+~/.claude/
+├── agents/              # Symlinked from ~/.claude-code-tools
 │   ├── bash-expert.md
-│   ├── typescript-expert.md
+│   ├── rails-expert.md
 │   └── ...
-├── commands/            # Slash commands
+├── commands/            # Symlinked from ~/.claude-code-tools
+│   ├── bootstrap.md
+│   ├── sync.md
 │   ├── create-plan.md
-│   ├── debug.md
-│   ├── consider/        # Mental model commands
 │   └── ...
-└── skills/              # Structured knowledge frameworks
+└── skills/              # Symlinked from ~/.claude-code-tools
     ├── create-agent-skills/
-    ├── create-hooks/
     └── ...
+
+~/.claude-code-tools/    # Source repo
+├── agents/
+├── commands/
+├── skills/
+├── install.sh
+└── README.md
 ```
 
-## Requirements
+---
 
-- Claude Code CLI
-- Git (for git-workflow-manager agent)
-- Language-specific tools (for language expert agents)
+## Security Notes
 
-## Configuration Notes
+### This Repository
 
-### Git Workflow Manager
+✅ **Safe to clone** - Contains only markdown instruction files, no executable code beyond the install script.
 
-For autonomous commits, set up SSH keys and grant the agent access to your repository. The agent can validate security concerns, craft commit messages, and commit changes to remote repos.
+### Your Project Docs
 
-You can execute "push code" for a streamlined commit workflow without interruption.
+⚠️ **May contain sensitive info.** The `docs/` created in your projects could capture:
+- Error messages with internal details
+- Architecture revealing system design
+- API endpoints and internal URLs
+
+**If your project repo is public**, add to `.gitignore`:
+```gitignore
+docs/troubleshooting.md
+docs/architecture.md
+# Or: docs/
+```
+
+### Best Practices
+
+- Never put credentials or API keys in documentation
+- Review troubleshooting.md before committing (may have error details)
+- Keep docs/ private for proprietary systems
+
+---
+
+## Customization
+
+### Adding Your Own Agents
+
+```bash
+# Create new agent
+vim ~/.claude-code-tools/agents/my-expert.md
+
+# It's automatically available after save (if using --link)
+```
+
+### Modifying Bootstrap
+
+Edit `~/.claude-code-tools/commands/bootstrap.md` to:
+- Change default doc templates
+- Add stack-specific docs
+- Modify agent recommendations
+
+### Project-Specific Commands
+
+Projects can have their own commands in `.claude/commands/` that extend or override global ones.
+
+---
 
 ## Contributing
 
-When adding new agents, commands, or skills:
+1. Fork the repository
+2. Follow existing patterns
+3. Include clear descriptions and examples
+4. Test before submitting PR
 
-1. Follow the established patterns in existing files
-2. Use appropriate YAML frontmatter for configuration
-3. Include clear descriptions and usage examples
-4. Test thoroughly before committing
+---
 
-## Best Practices
+## Credits
 
-- Use agents for domain-specific expertise
-- Use commands for repeatable workflows
-- Use skills for learning complex task patterns
-- Combine tools for maximum productivity
+Built on work from:
+- [glittercowboy](https://github.com/glittercowboy)
+- [VoltAgent](https://github.com/VoltAgent)
+
+---
 
 ## License
 
-These extensions are provided as-is for use with Claude Code.
-
-## Special thanks
-A lot of these repos are pulled from the following and modified to meet my specific needs. Giving credit where credit is due! 
-
-https://github.com/glittercowboy
-
-https://github.com/VoltAgent
+MIT
